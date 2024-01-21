@@ -44,6 +44,31 @@
                     </li>
                 </ul>
             </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <!-- Les autres éléments de votre menu -->
+                    <!-- ... -->
+                    
+                    {% if user.is_authenticated %}
+                        <!-- Lien vers le profil de l'utilisateur -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'user_profile' %}">Mon Profil</a>
+                        </li>
+                        <!-- Lien pour la déconnexion -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_logout' %}">Déconnexion</a>
+                        </li>
+                    {% else %}
+                        <!-- Liens pour la connexion ou l'inscription -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_login' %}">Connexion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_signup' %}">Inscription</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
         </nav>
     </header>
 
