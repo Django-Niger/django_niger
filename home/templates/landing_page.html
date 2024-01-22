@@ -7,67 +7,114 @@
         <div class="container">
             <h1 class="display-3">Bienvenue sur Django Niger</h1>
             <p class="lead">Votre communauté pour tout savoir sur Django</p>
+            <!-- Ajout du logo Django -->
+            <img src="{% static 'images/djngo.jpeg' %}" alt="Logo Django" class="img-fluid my-3" style="max-height: 100px;">
             <a href="#about" class="btn btn-success btn-lg">En savoir plus</a> <!-- Bouton en vert Django -->
         </div>
     </section>
-    <!-- Autres sect
+
 
     <!-- Section À Propos -->
     <section id="about" class="py-5">
         <div class="container">
             <h2 class="mb-4">Découvrez Django Niger</h2>
             <div class="row">
+                <!-- Colonne pour l'image -->
                 <div class="col-lg-6 mb-3 mb-lg-0">
                     <img src="{% static 'images/django-niger.png' %}" alt="À Propos de Django Niger" class="img-fluid rounded">
                 </div>
+    
                 <div class="col-lg-6">
                     <p>
-                        Django Niger est une initiative passionnante qui rassemble les développeurs Django au Niger. Notre mission est de créer un espace de partage, d'apprentissage et de collaboration pour les développeurs de tous niveaux.
+                        Au cœur de l'Afrique, une communauté dynamique et passionnée prend vie : Django Niger. Née de l'aspiration à connecter les développeurs, novices et experts, autour du framework Django, notre communauté est un carrefour d'échange, d'innovation et d'apprentissage. Chez Django Niger, nous croyons fermement en la puissance de la collaboration et du partage des connaissances pour repousser les frontières du développement web.
                     </p>
                     <p>
-                        Nous sommes inspirés par le dynamisme de la communauté Django mondiale et aspirons à apporter notre contribution unique. Avec des ateliers, des séances de formation, et des rencontres régulières, nous explorons les dernières tendances et innovations en matière de développement web.
+                        Notre communauté est un mélange vibrant de développeurs expérimentés, de passionnés de la technologie et d'individus curieux, tous unis par une passion commune pour Django. Ensemble, nous explorons les possibilités infinies de Django, en partageant nos expériences, nos défis et nos succès.
                     </p>
                     <p>
-                        Rejoignez-nous pour enrichir vos compétences, partager vos expériences et collaborer sur des projets passionnants. Ensemble, nous pouvons faire de Django Niger un pilier de la communauté technologique en Afrique.
+                        Notre programme est conçu pour stimuler l'apprentissage continu et la croissance professionnelle. Il comprend des ateliers pratiques, des séances de codage collaboratives, et des discussions sur les tendances actuelles du développement web. Nous organisons également des événements réguliers, où les membres peuvent se connecter, apprendre et s'inspirer les uns des autres.
                     </p>
+                    <p>
+                        Django Niger est plus qu'une communauté ; c'est une famille en pleine expansion où chaque membre apporte sa touche unique.
+                    </p>
+                </div>
+                
+            </div>
+            <div class="row mt-3">
+                <!-- Colonne pour le texte supplémentaire en dessous de l'image -->
+                <div class="col-lg-12">
+                    <p>
+                        Rejoignez-nous dans cette aventure passionnante et soyez une partie intégrante de notre voyage vers l'excellence en développement web. Ensemble, faisons de Django Niger un phare de la technologie en Afrique.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+     <!-- Section des Fonctionnalités -->
+    <section class="features-section bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Fonctionnalités Clés</h2>
+            <div class="row">
+                <!-- Forums de Discussion -->
+                <div class="col-md-4 text-center">
+                    <img src="{% static 'images/forum-django.png' %}" alt="Forums de Discussion" class="img-fluid mb-3">
+                    <h3 class="h4">Forums de Discussion</h3>
+                    <p>Participez à des discussions enrichissantes sur Django et ses applications.</p>
+                </div>
+                <!-- Workshops et Formations -->
+                <div class="col-md-4 text-center">
+                    <img src="{% static 'images/WorkshopsetFormations.png' %}" alt="Workshops et Formations" class="img-fluid mb-3">
+                    <h3 class="h4">Workshops et Formations</h3>
+                    <p>Participez à nos ateliers et formations pour développer vos compétences en Django.</p>
+                </div>
+                <!-- Projets Collaboratifs -->
+                <div class="col-md-4 text-center">
+                    <img src="{% static 'images/ProjetsCollaboratifs.png' %}" alt="Projets Collaboratifs" class="img-fluid mb-3">
+                    <h3 class="h4">Projets Collaboratifs</h3>
+                    <p>Engagez-vous dans des projets passionnants et collaborez avec d'autres développeurs.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section des Fonctionnalités -->
-    <section class="features-section bg-light py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Fonctionnalités Clés</h2>
-            <div class="row">
-                <!-- Exemple de fonctionnalité -->
-                <div class="col-md-4">
-                    <h3 class="h4">Forums de Discussion</h3>
-                    <p>Participez à des discussions enrichissantes sur Django et ses applications.</p>
-                </div>
-                <!-- Autres fonctionnalités -->
-                <!-- ... -->
-            </div>
-        </div>
-    </section>
 
     <!-- Section des Événements à Venir -->
     <section class="events-section py-5">
         <div class="container">
             <h2 class="text-center mb-4">Événements à Venir</h2>
-            <p>Ne manquez pas nos prochains meetups, workshops, et conférences.</p>
-            <!-- Détails des événements -->
-            <!-- ... -->
+            <p>Ne manquez pas nos prochains meetups, workshops, et conférences...</p>
+            <!-- Liste des événements -->
+            <ul>
+                <li>Meetup Django - 25 Mars</li>
+                <li>Workshop Web Dev - 10 Avril</li>
+                <li>Conférence DjangoCon - 20 Mai</li>
+            </ul>
         </div>
     </section>
 
-    <!-- Section Contact -->
-    <section id="contact" class="contact-section py-5">
+    <!-- Section Témoignages -->
+    <section class="testimonials-section bg-light py-5">
         <div class="container">
-            <h2 class="text-center mb-4">Contactez-Nous</h2>
-            <p>Pour plus d'informations, n'hésitez pas à nous contacter.</p>
-            <!-- Formulaire de contact ou informations de contact -->
-            <!-- ... -->
+            <h2 class="text-center mb-4">Témoignages</h2>
+            <div class="row">
+                <!-- Exemple de Témoignage -->
+                <div class="col-md-6 mb-3">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"Rejoindre Django Niger a été une expérience incroyable pour ma carrière de développeur."</p>
+                        <footer class="blockquote-footer">Ali, Développeur Web</footer>
+                    </blockquote>
+                </div>
+                <!-- Autre Témoignage -->
+                <div class="col-md-6 mb-3">
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"Les workshops organisés par Django Niger m'ont permis d'améliorer mes compétences en Django de manière significative."</p>
+                        <footer class="blockquote-footer">Fatou, Ingénieure Logiciel</footer>
+                    </blockquote>
+                </div>
+            </div>
         </div>
     </section>
+
 {% endblock content %}

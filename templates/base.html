@@ -9,17 +9,29 @@
     <!-- Styles personnalisés pour les couleurs de Django et Python -->
     <style>
         .navbar-custom {
-            background-color: #092E20; /* Vert Django */
-            border-bottom: 3px solid #306998; /* Bleu Python */
+            background-color: #306998; /* Bleu Python */
+        }
+        .navbar-custom .navbar-brand, .navbar-custom .nav-link, .navbar-custom .navbar-nav .nav-link {
+            color: #FFD43B; /* Jaune Python */
+        }
+        .navbar-custom .navbar-nav .nav-link:hover {
+            color: #ffd700; /* Jaune plus clair pour le survol */
         }
         .footer-custom {
-            background-color: #306998; /* Bleu Python */
-            color: #FFD43B; /* Jaune Python */
+            background-color: #092E20; /* Vert Django */
+            color: #fff;
         }
-        .navbar-brand, .nav-link, .footer-custom {
-            color: #FFD43B; /* Jaune Python */
+        .btn-custom {
+            background-color: #FFD43B; /* Jaune Python */
+            border-color: #FFD43B; /* Jaune Python */
+            color: #306998; /* Bleu Python */
+        }
+        .btn-custom:hover {
+            background-color: #ffe066; /* Jaune plus clair */
+            border-color: #ffe066; /* Jaune plus clair */
         }
     </style>
+    
 </head>
 <body>
     <header>
@@ -83,9 +95,11 @@
 
     <footer class="footer mt-auto py-3 footer-custom">
         <div class="container text-center">
-            <span>&copy; 2024 Django Niger - Tous droits réservés.</span>
+            <p>&copy; 2024 Django Niger - Communauté Open Source.</p>
+            <p>Pour plus d'informations, contributions ou pour rejoindre le projet, visitez notre <a href="https://github.com/Django-Niger" target="_blank">page GitHub</a>.</p>
         </div>
     </footer>
+    
 
     <!-- jQuery et Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
