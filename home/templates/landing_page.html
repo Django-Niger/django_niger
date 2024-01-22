@@ -1,32 +1,49 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
     <!-- Section de la bannière principale -->
-    <section class="hero-section">
-        <div class="container text-center">
-            <h1>Bienvenue sur Django Niger</h1>
-            <p>Votre communauté pour tout savoir sur Django</p>
-            <a href="#about" class="btn btn-primary">En savoir plus</a>
+    <section class="hero-section text-center py-5" style="background-color: #092E20; color: #fff;"> <!-- Couleur de fond vert Django -->
+        <div class="container">
+            <h1 class="display-3">Bienvenue sur Django Niger</h1>
+            <p class="lead">Votre communauté pour tout savoir sur Django</p>
+            <a href="#about" class="btn btn-success btn-lg">En savoir plus</a> <!-- Bouton en vert Django -->
         </div>
     </section>
+    <!-- Autres sect
 
     <!-- Section À Propos -->
-    <section id="about" class="about-section">
+    <section id="about" class="py-5">
         <div class="container">
-            <h2>À Propos de Django Niger</h2>
-            <p>Description détaillée de ce que votre communauté offre, ses objectifs, son histoire, etc.</p>
+            <h2 class="mb-4">Découvrez Django Niger</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-3 mb-lg-0">
+                    <img src="{% static 'images/django-niger.png' %}" alt="À Propos de Django Niger" class="img-fluid rounded">
+                </div>
+                <div class="col-lg-6">
+                    <p>
+                        Django Niger est une initiative passionnante qui rassemble les développeurs Django au Niger. Notre mission est de créer un espace de partage, d'apprentissage et de collaboration pour les développeurs de tous niveaux.
+                    </p>
+                    <p>
+                        Nous sommes inspirés par le dynamisme de la communauté Django mondiale et aspirons à apporter notre contribution unique. Avec des ateliers, des séances de formation, et des rencontres régulières, nous explorons les dernières tendances et innovations en matière de développement web.
+                    </p>
+                    <p>
+                        Rejoignez-nous pour enrichir vos compétences, partager vos expériences et collaborer sur des projets passionnants. Ensemble, nous pouvons faire de Django Niger un pilier de la communauté technologique en Afrique.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Section des Fonctionnalités -->
-    <section class="features-section">
+    <section class="features-section bg-light py-5">
         <div class="container">
-            <h2>Fonctionnalités Clés</h2>
+            <h2 class="text-center mb-4">Fonctionnalités Clés</h2>
             <div class="row">
                 <!-- Exemple de fonctionnalité -->
                 <div class="col-md-4">
-                    <h3>Forums de Discussion</h3>
-                    <p>Rejoignez les discussions sur les derniers sujets en rapport avec Django.</p>
+                    <h3 class="h4">Forums de Discussion</h3>
+                    <p>Participez à des discussions enrichissantes sur Django et ses applications.</p>
                 </div>
                 <!-- Autres fonctionnalités -->
                 <!-- ... -->
@@ -35,31 +52,21 @@
     </section>
 
     <!-- Section des Événements à Venir -->
-    <section class="events-section">
+    <section class="events-section py-5">
         <div class="container">
-            <h2>Événements à Venir</h2>
-            <p>Liste des prochains événements, meetups, ou workshops.</p>
+            <h2 class="text-center mb-4">Événements à Venir</h2>
+            <p>Ne manquez pas nos prochains meetups, workshops, et conférences.</p>
             <!-- Détails des événements -->
             <!-- ... -->
         </div>
     </section>
 
-    <!-- Section Témoignages -->
-    <section class="testimonials-section">
-        <div class="container">
-            <h2>Témoignages</h2>
-            <p>Ce que les membres disent de la communauté.</p>
-            <!-- Témoignages -->
-            <!-- ... -->
-        </div>
-    </section>
-
     <!-- Section Contact -->
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section py-5">
         <div class="container">
-            <h2>Contactez-nous</h2>
-            <p>Comment nous joindre.</p>
-            <!-- Formulaire de contact ou informations -->
+            <h2 class="text-center mb-4">Contactez-Nous</h2>
+            <p>Pour plus d'informations, n'hésitez pas à nous contacter.</p>
+            <!-- Formulaire de contact ou informations de contact -->
             <!-- ... -->
         </div>
     </section>

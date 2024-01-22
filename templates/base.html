@@ -4,14 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Django Niger</title>
-    <!-- Intégration de Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Vos styles personnalisés -->
+    <!-- Styles personnalisés pour les couleurs de Django et Python -->
+    <style>
+        .navbar-custom {
+            background-color: #092E20; /* Vert Django */
+            border-bottom: 3px solid #306998; /* Bleu Python */
+        }
+        .footer-custom {
+            background-color: #306998; /* Bleu Python */
+            color: #FFD43B; /* Jaune Python */
+        }
+        .navbar-brand, .nav-link, .footer-custom {
+            color: #FFD43B; /* Jaune Python */
+        }
+    </style>
 </head>
 <body>
     <header>
-        <!-- Barre de navigation Bootstrap -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- Barre de navigation personnalisée -->
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
             <a class="navbar-brand" href="#">Django Niger</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -42,24 +55,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
-                </ul>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <!-- Les autres éléments de votre menu -->
-                    <!-- ... -->
-                    
                     {% if user.is_authenticated %}
-                        <!-- Lien vers le profil de l'utilisateur -->
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'user_profile' %}">Mon Profil</a>
                         </li>
-                        <!-- Lien pour la déconnexion -->
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'account_logout' %}">Déconnexion</a>
                         </li>
                     {% else %}
-                        <!-- Liens pour la connexion ou l'inscription -->
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'account_login' %}">Connexion</a>
                         </li>
@@ -74,17 +77,17 @@
 
     <main role="main" class="container mt-4">
         {% block content %}
-        <!-- Contenu spécifique à chaque page -->
+        <!-- Contenu de la page -->
         {% endblock content %}
     </main>
 
-    <footer class="footer mt-auto py-3 bg-dark text-white">
+    <footer class="footer mt-auto py-3 footer-custom">
         <div class="container text-center">
-            <span>&copy; {{ year }} Django Niger - Tous droits réservés.</span>
+            <span>&copy; 2024 Django Niger - Tous droits réservés.</span>
         </div>
     </footer>
 
-    <!-- Intégration de jQuery et Bootstrap JS -->
+    <!-- jQuery et Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
