@@ -98,8 +98,8 @@
                                     <h5 class="card-title">{{ event.title }}</h5>
                                     <p class="card-text">{{ event.date_time|date:"d M, Y H:i" }}</p>
                                     <div class="mt-auto">
-                                        <a href="#" class="btn btn-primary">Détails</a>
-                                        <a href="#" class="btn btn-secondary">S'inscrire</a>
+                                        <a href="{% url 'evenement:event_detail' event.id %}" class="btn btn-primary">Détails</a>
+                                        <a href="{% url 'evenement:register_to_event' event.id %}" class="btn btn-secondary">S'inscrire</a>
                                     </div>
                                 </div>
                             </div>

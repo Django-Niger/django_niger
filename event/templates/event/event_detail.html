@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Template pour les détails de l'événement -->
+<div class="container mt-4">
+    <!-- <h1 class="display-4 text-primary mb-3">{{ event.title }}</h1> -->
+    <h1 class="display-4 mb-3" style="color: #092E20; font-weight: bold;">{{ event.title }}</h1>
+
+    {% if event.image %}
+        <img src="{{ event.image.url }}" class="img-fluid rounded mb-4" alt="{{ event.title }}">
+    {% endif %}
+
+    <div class="row">
+        <div class="col-lg-8 mb-4">
+            <div class="card border-primary mb-3">
+                <div class="card-header bg-primary text-white">Description</div>
+                <div class="card-body">
+                    <p class="card-text">{{ event.description }}</p>
+                </div>
+            </div>
+
+            <div class="card border-success mb-3">
+                <div class="card-header bg-success text-white">Détails</div>
+                <div class="card-body">
+                    <p class="card-text"><strong>Date et Heure:</strong> {{ event.date_time|date:"d M, Y H:i" }}</p>
+                    <p class="card-text"><strong>Lieu:</strong> {{ event.location }}</p>
+                    <p class="card-text"><strong>Catégorie:</strong> {{ event.category.name }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card border-info">
+                <div class="card-header bg-info text-white">Participants</div>
+                <ul class="list-group list-group-flush">
+                    {% for registration in event.registrations.all %}
+                        <li class="list-group-item">{{ registration.participant.username }}</li>
+                    {% empty %}
+                        <li class="list-group-item">Aucun participant inscrit</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
