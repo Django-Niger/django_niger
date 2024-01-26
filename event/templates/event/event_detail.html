@@ -4,7 +4,6 @@
 {% block content %}
 <!-- Template pour les détails de l'événement -->
 <div class="container mt-4">
-    <!-- <h1 class="display-4 text-primary mb-3">{{ event.title }}</h1> -->
     <h1 class="display-4 mb-3" style="color: #092E20; font-weight: bold;">{{ event.title }}</h1>
 
     {% if event.image %}
@@ -13,6 +12,7 @@
 
     <div class="row">
         <div class="col-lg-8 mb-4">
+            <!-- Description, Détails, et Statistiques -->
             <div class="card border-primary mb-3">
                 <div class="card-header bg-primary text-white">Description</div>
                 <div class="card-body">
@@ -26,18 +26,39 @@
                     <p class="card-text"><strong>Date et Heure:</strong> {{ event.date_time|date:"d M, Y H:i" }}</p>
                     <p class="card-text"><strong>Lieu:</strong> {{ event.location }}</p>
                     <p class="card-text"><strong>Catégorie:</strong> {{ event.category.name }}</p>
+                    <p class="card-text"><strong>Nombre de Participants:</strong> {{ event.registrations.count }}</p>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-4">
-            <div class="card border-info">
+            <!-- Participants -->
+            <div class="card border-info mb-4">
                 <div class="card-header bg-info text-white">Participants</div>
                 <ul class="list-group list-group-flush">
                     {% for registration in event.registrations.all %}
                         <li class="list-group-item">{{ registration.participant.username }}</li>
                     {% empty %}
                         <li class="list-group-item">Aucun participant inscrit</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Organisateurs -->
+            <div class="card border-warning">
+                <div class="card-header bg-warning text-dark">Organisateurs</div>
+                <ul class="list-group list-group-flush">
+                    {% for organizer in event.organizers.all %} 
+                        <li class="list-group-item">
+                            {% if organizer.profile_photo %}
+                                <img src="{{ organizer.profile_photo.url }}" class="rounded-circle" alt="{{ organizer.username }}" style="height: 30px; width: 30px;">
+                            {% else %}
+                                <img src="{% static 'images/default_profile.png' %}" class="rounded-circle" alt="Default Profile" style="height: 30px; width: 30px;">
+                            {% endif %}
+                            {{ organizer.username }}
+                        </li>
+                    {% empty %}
+                        <li class="list-group-item">Pas d'organisateurs</li>
                     {% endfor %}
                 </ul>
             </div>
