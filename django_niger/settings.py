@@ -53,20 +53,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.zoom",
     "user",
     "home",
-    "wagtail.contrib.forms",
-    "wagtail.contrib.redirects",
-    "wagtail.embeds",
-    "wagtail.sites",
-    "wagtail.users",
-    "wagtail.snippets",
-    "wagtail.documents",
-    "wagtail.images",
-    "wagtail.search",
-    "wagtail.admin",
-    "wagtail",
-    "modelcluster",
-    "taggit",
-    "blog",
+    "event",
 ]
 
 MIDDLEWARE = [
@@ -78,7 +65,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
-    "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
 # Provider specific settings
@@ -310,8 +296,3 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "user.User"
 
 SITE_ID = 1
-
-
-WAGTAIL_SITE_NAME = "Djnago Niger blog"
-
-WAGTAILADMIN_BASE_URL = "http://example.com"

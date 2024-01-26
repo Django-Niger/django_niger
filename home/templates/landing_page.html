@@ -87,12 +87,20 @@
             <p>Ne manquez pas nos prochains meetups, workshops, et conférences...</p>
             <!-- Liste des événements -->
             <ul>
-                <li>Meetup Django - 25 Mars</li>
-                <li>Workshop Web Dev - 10 Avril</li>
-                <li>Conférence DjangoCon - 20 Mai</li>
+                {% if upcoming_events %}
+                    {% for event in upcoming_events %}
+                        <li>
+                            {{ event.title }} - {{ event.date_time|date:"d M" }}
+                            <!-- Ajoutez ici d'autres détails si nécessaire -->
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <li>Aucun événement à venir</li>
+                {% endif %}
             </ul>
         </div>
     </section>
+
 
     <!-- Section Témoignages -->
     <section class="testimonials-section bg-light py-5">
