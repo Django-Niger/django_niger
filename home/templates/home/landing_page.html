@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
+<style>
+    .text-justify {
+        text-align: justify;
+    }
+</style>
+
 {% block content %}
     
 
@@ -13,19 +19,18 @@
                     <img src="{% static 'images/django-niger.png' %}" alt="À Propos de Django Niger" class="img-fluid rounded">
                 </div>
                 <div class="col-lg-6">
-                    <p>
+                    <p class="text-justify">
                         Au cœur de l'Afrique, une communauté dynamique et passionnée prend vie : Django Niger. Née de l'aspiration à connecter les développeurs, novices et experts, autour du framework Django, notre communauté est un carrefour d'échange, d'innovation et d'apprentissage. Chez Django Niger, nous croyons fermement en la puissance de la collaboration et du partage des connaissances pour repousser les frontières du développement web.
                     </p>
-                    <p>
+                    <p class="text-justify">
                         Notre communauté est un mélange vibrant de développeurs expérimentés, de passionnés de la technologie et d'individus curieux, tous unis par une passion commune pour Django. Ensemble, nous explorons les possibilités infinies de Django, en partageant nos expériences, nos défis et nos succès.
                     </p>
-                    <p>
+                    <p class="text-justify">
                         Notre programme est conçu pour stimuler l'apprentissage continu et la croissance professionnelle. Il comprend des ateliers pratiques, des séances de codage collaboratives, et des discussions sur les tendances actuelles du développement web. Nous organisons également des événements réguliers, où les membres peuvent se connecter, apprendre et s'inspirer les uns des autres.
                     </p>
-                    <p>
+                    <p class="text-justify">
                         Django Niger est plus qu'une communauté ; c'est une famille en pleine expansion où chaque membre apporte sa touche unique.
-                    </p>
-                    
+                    </p>        
                 </div>
             </div>
         </div>
@@ -66,7 +71,7 @@
         <div class="container">
             <h2>Rejoignez-nous aujourd'hui!</h2>
             <p>Devenez membre de Django Niger et profitez de nos avantages exclusifs.</p>
-            <a href="/join" class="btn btn-light">Inscrivez-vous maintenant</a>
+            <a href="#" class="btn btn-light">Inscrivez-vous maintenant</a>
         </div>
     </div>
 

@@ -82,7 +82,7 @@
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'user_profile' %}">Mon Profil</a>
+                            <a class="nav-link" href="{% url 'user:user_profile' %}">Mon Profil</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'account_logout' %}">Déconnexion</a>
