@@ -36,55 +36,68 @@
 <body>
     <header>
         <!-- Barre de navigation personnalisée -->
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-            <a class="navbar-brand" href="#">Django Niger</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#forum">Forums</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#blog">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#events">Événements</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#resources">Ressources</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#members">Membres</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#gallery">Galerie</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                    {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'user_profile' %}">Mon Profil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_logout' %}">Déconnexion</a>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_login' %}">Connexion</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_signup' %}">Inscription</a>
-                        </li>
-                    {% endif %}
-                </ul>
-            </div>
-        </nav>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <a class="navbar-brand" href="#">Django Niger</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#about">À Propos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#events">Événements</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="communityDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Communauté
+                </a>
+                <div class="dropdown-menu" aria-labelledby="communityDropdown">
+                    <a class="dropdown-item" href="#forum">Forums</a>
+                    <a class="dropdown-item" href="#blog">Blog</a>
+                    <a class="dropdown-item" href="#members">Membres</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Ressources
+                </a>
+                <div class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                    <a class="dropdown-item" href="#documentation">Documentation</a>
+                    <a class="dropdown-item" href="#tutorials">Tutoriels</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#gallery">Galerie</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user_profile' %}">Mon Profil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account_logout' %}">Déconnexion</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account_login' %}">Connexion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account_signup' %}">Inscription</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
     </header>
 
     <main role="main" class="container mt-4">
