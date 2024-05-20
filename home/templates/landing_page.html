@@ -2,28 +2,16 @@
 {% load static %}
 
 {% block content %}
-    <!-- Section de la bannière principale -->
-    <section class="hero-section text-center py-5" style="background-color: #092E20; color: #fff;"> <!-- Couleur de fond vert Django -->
-        <div class="container">
-            <h1 class="display-3">Bienvenue sur Django Niger</h1>
-            <p class="lead">Votre communauté pour tout savoir sur Django</p>
-            <!-- Ajout du logo Django -->
-            <img src="{% static 'images/djngo.jpeg' %}" alt="Logo Django" class="img-fluid my-3" style="max-height: 100px;">
-            <a href="#about" class="btn btn-success btn-lg">En savoir plus</a> <!-- Bouton en vert Django -->
-        </div>
-    </section>
+    
 
-
-    <!-- Section À Propos -->
+    <!-- Section À Propos avec vidéo -->
     <section id="about" class="py-5">
         <div class="container">
             <h2 class="mb-4">Découvrez Django Niger</h2>
             <div class="row">
-                <!-- Colonne pour l'image -->
                 <div class="col-lg-6 mb-3 mb-lg-0">
                     <img src="{% static 'images/django-niger.png' %}" alt="À Propos de Django Niger" class="img-fluid rounded">
                 </div>
-    
                 <div class="col-lg-6">
                     <p>
                         Au cœur de l'Afrique, une communauté dynamique et passionnée prend vie : Django Niger. Née de l'aspiration à connecter les développeurs, novices et experts, autour du framework Django, notre communauté est un carrefour d'échange, d'innovation et d'apprentissage. Chez Django Niger, nous croyons fermement en la puissance de la collaboration et du partage des connaissances pour repousser les frontières du développement web.
@@ -37,22 +25,52 @@
                     <p>
                         Django Niger est plus qu'une communauté ; c'est une famille en pleine expansion où chaque membre apporte sa touche unique.
                     </p>
-                </div>
-                
-            </div>
-            <div class="row mt-3">
-                <!-- Colonne pour le texte supplémentaire en dessous de l'image -->
-                <div class="col-lg-12">
-                    <p>
-                        Rejoignez-nous dans cette aventure passionnante et soyez une partie intégrante de notre voyage vers l'excellence en développement web. Ensemble, faisons de Django Niger un phare de la technologie en Afrique.
-                    </p>
+                    
                 </div>
             </div>
         </div>
     </section>
-    
 
-     <!-- Section des Fonctionnalités -->
+    <!-- Section des Événements à Venir -->
+    {% if upcoming_events %}
+        <section class="events-section py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Événements à Venir</h2>
+                <p>Ne manquez pas nos prochains meetups, workshops, et conférences...</p>
+                <!-- Liste des événements -->
+                <div class="row">
+                    {% for event in upcoming_events %}
+                        <div class="col-md-4 mb-4 d-flex align-items-stretch">
+                            <div class="card w-100">
+                                {% if event.image %}
+                                    <img src="{{ event.image.url }}" class="card-img-top img-fluid" alt="{{ event.title }}" style="height: 200px; object-fit: cover;">
+                                {% endif %}
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">{{ event.title }}</h5>
+                                    <p class="card-text">{{ event.date_time|date:"d M, Y H:i" }}</p>
+                                    <div class="mt-auto">
+                                        <a href="{% url 'evenement:event_detail' event.id %}" class="btn btn-primary">Détails</a>
+                                        <a href="{% url 'evenement:register_to_event' event.id %}" class="btn btn-secondary">S'inscrire</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    <!-- Bannière d'appel à l'action -->
+    <div class="call-to-action bg-success text-white text-center py-5">
+        <div class="container">
+            <h2>Rejoignez-nous aujourd'hui!</h2>
+            <p>Devenez membre de Django Niger et profitez de nos avantages exclusifs.</p>
+            <a href="/join" class="btn btn-light">Inscrivez-vous maintenant</a>
+        </div>
+    </div>
+
+    <!-- Section des Fonctionnalités -->
     <section class="features-section bg-light py-5">
         <div class="container">
             <h2 class="text-center mb-4">Fonctionnalités Clés</h2>
@@ -80,40 +98,6 @@
     </section>
 
 
-    <!-- Section des Événements à Venir -->
-    <section class="events-section py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Événements à Venir</h2>
-            <p>Ne manquez pas nos prochains meetups, workshops, et conférences...</p>
-            <!-- Liste des événements -->
-            <div class="row">
-                {% if upcoming_events %}
-                    {% for event in upcoming_events %}
-                        <div class="col-md-4 mb-4 d-flex align-items-stretch">
-                            <div class="card w-100">
-                                {% if event.image %}
-                                    <img src="{{ event.image.url }}" class="card-img-top img-fluid" alt="{{ event.title }}" style="height: 200px; object-fit: cover;">
-                                {% endif %}
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">{{ event.title }}</h5>
-                                    <p class="card-text">{{ event.date_time|date:"d M, Y H:i" }}</p>
-                                    <div class="mt-auto">
-                                        <a href="{% url 'evenement:event_detail' event.id %}" class="btn btn-primary">Détails</a>
-                                        <a href="{% url 'evenement:register_to_event' event.id %}" class="btn btn-secondary">S'inscrire</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <div class="col-12">
-                        <p>Aucun événement à venir</p>
-                    </div>
-                {% endif %}
-            </div>
-        </div>
-    </section>
-
     <!-- Section Témoignages -->
     <section class="testimonials-section bg-light py-5">
         <div class="container">
@@ -136,5 +120,4 @@
             </div>
         </div>
     </section>
-
 {% endblock content %}
