@@ -22,8 +22,4 @@ Tous les changements notables apportés à ce projet seront documentés dans ce 
 ### Ajouté
 - Version initiale du projet avec toutes les fonctionnalités de base.
 
----
-
 Ce changelog suit le format [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
-
-
