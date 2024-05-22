@@ -85,14 +85,14 @@
                             <a class="nav-link" href="{% url 'user:user_profile' %}">Mon Profil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_logout' %}">Déconnexion</a>
+                            <a class="nav-link" href="#">Déconnexion</a>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_login' %}">Connexion</a>
+                            <a class="nav-link" href="#">Connexion</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_signup' %}">Inscription</a>
+                            <a class="nav-link" href="#">Inscription</a>
                         </li>
                     {% endif %}
                 </ul>
