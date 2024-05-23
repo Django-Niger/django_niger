@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 from django.utils.translation import gettext_lazy as _
-from decouple import config
+from decouple import config, Csv
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,9 +29,9 @@ SECRET_KEY = "django-insecure-uz-bse*k#87s_i0doo8md@a#hoi*hj(n3txqe7)8k+ylu))xlf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [config("ALLOWED_HOSTS")]
+ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 
-CSRF_TRUSTED_ORIGINS = [config("CSRF_TRUSTED_ORIGINS")]
+CSRF_TRUSTED_ORIGINS = config("CSRF_TRUSTED_ORIGINS", cast=Csv())
 
 
 # Application definition
