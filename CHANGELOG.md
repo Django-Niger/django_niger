@@ -23,6 +23,8 @@ Tous les changements notables apportés à ce projet seront documentés dans ce 
 - Affichage des erreurs d'authentification dans le formulaire de connexion.
 - Amélioration de la vue d'inscription à un événement pour afficher un message lorsque l'utilisateur est déjà inscrit.
 - Modification de la section d'appel à l'action pour ne s'afficher que si l'utilisateur n'est pas connecté.
+- Correction des problèmes liés à la configuration de `ALLOWED_HOSTS` et `CSRF_TRUSTED_ORIGINS`.
+- Résolution du problème d'affichage des images en production.
 
 
 ## [1.0.0] - 2024-05-21
