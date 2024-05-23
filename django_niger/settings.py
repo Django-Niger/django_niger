@@ -80,6 +80,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = "django_niger.wsgi.application"
 
 
@@ -157,6 +158,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "user.User"
 
 SITE_ID = 1
+
+SITE_NAME = "Django Niger"
 
 
 AUTHENTICATION_BACKENDS = [
