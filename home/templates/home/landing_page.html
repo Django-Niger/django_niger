@@ -66,14 +66,17 @@
         </section>
     {% endif %}
 
+    {% if not user.is_authenticated %}
     <!-- Bannière d'appel à l'action -->
     <div class="call-to-action bg-success text-white text-center py-5">
         <div class="container">
             <h2>Rejoignez-nous aujourd'hui!</h2>
             <p>Devenez membre de Django Niger et profitez de nos avantages exclusifs.</p>
-            <a href="#" class="btn btn-light">Inscrivez-vous maintenant</a>
+            <a href="{% url 'account_login' %}" class="btn btn-light">Inscrivez-vous maintenant</a>
         </div>
     </div>
+    {% endif %}
+
 
     <!-- Section des Fonctionnalités -->
     <section class="features-section bg-light py-5">
