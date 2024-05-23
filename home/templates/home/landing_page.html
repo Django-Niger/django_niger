@@ -38,33 +38,38 @@
 
     <!-- Section des Événements à Venir -->
     {% if upcoming_events %}
-        <section class="events-section py-5">
-            <div class="container">
-                <h2 class="text-center mb-4">Événements à Venir</h2>
-                <p>Ne manquez pas nos prochains meetups, workshops, et conférences...</p>
-                <!-- Liste des événements -->
-                <div class="row">
-                    {% for event in upcoming_events %}
-                        <div class="col-md-4 mb-4 d-flex align-items-stretch">
-                            <div class="card w-100">
-                                {% if event.image %}
-                                    <img src="{{ event.image.url }}" class="card-img-top img-fluid" alt="{{ event.title }}" style="height: 200px; object-fit: cover;">
-                                {% endif %}
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">{{ event.title }}</h5>
-                                    <p class="card-text">{{ event.date_time|date:"d M, Y H:i" }}</p>
-                                    <div class="mt-auto">
+    <section class="events-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Événements à Venir</h2>
+            <p>Ne manquez pas nos prochains meetups, workshops, et conférences...</p>
+            <!-- Liste des événements -->
+            <div class="row">
+                {% for event in upcoming_events %}
+                    <div class="col-md-4 mb-4 d-flex align-items-stretch">
+                        <div class="card w-100">
+                            {% if event.image %}
+                                <img src="{{ event.image.url }}" class="card-img-top img-fluid" alt="{{ event.title }}" style="height: 200px; object-fit: cover;">
+                            {% endif %}
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">{{ event.title }}</h5>
+                                <p class="card-text">{{ event.date_time|date:"d M, Y H:i" }}</p>
+                                <div class="mt-auto">
+                                    {% if event.external_link %}
+                                        <a href="{{ event.external_link }}" class="btn btn-primary" target="_blank">En savoir plus</a>
+                                    {% else %}
                                         <a href="{% url 'evenement:event_detail' event.id %}" class="btn btn-primary">Détails</a>
                                         <a href="{% url 'evenement:register_to_event' event.id %}" class="btn btn-secondary">S'inscrire</a>
-                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
-                    {% endfor %}
-                </div>
+                    </div>
+                {% endfor %}
             </div>
-        </section>
+        </div>
+    </section>
     {% endif %}
+
 
     {% if not user.is_authenticated %}
     <!-- Bannière d'appel à l'action -->

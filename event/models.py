@@ -21,6 +21,7 @@ class Event(models.Model):
     )
     max_participants = models.IntegerField(null=True, blank=True)
     organizers = models.ManyToManyField(User, related_name="organized_events")
+    external_link = models.URLField(blank=True, null=True)  # Nouveau champ
 
     def __str__(self):
         return self.title
