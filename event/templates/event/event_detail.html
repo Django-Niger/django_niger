@@ -64,5 +64,23 @@
             </div>
         </div>
     </div>
+
+    <!-- Boutons de partage sur les réseaux sociaux -->
+    <!-- Boutons de partage sur les réseaux sociaux -->
+    <div class="mt-4 mb-5 text-center">
+        <h5>Partager cet événement</h5>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" class="btn btn-primary mr-2">
+            <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+        <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ event.title }}" target="_blank" class="btn btn-info mr-2">
+            <i class="fab fa-twitter"></i> Twitter
+        </a>
+        <a href="https://api.whatsapp.com/send?text={{ event.title }} - {{ request.build_absolute_uri }}" target="_blank" class="btn btn-success mr-2">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="mailto:?subject={{ event.title }}&body={{ request.build_absolute_uri }}" target="_blank" class="btn btn-danger">
+            <i class="fas fa-envelope"></i> Email
+        </a>
+    </div>
 </div>
 {% endblock content %}

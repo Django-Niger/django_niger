@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Django Niger</title>
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Styles personnalisés pour les couleurs de Django et Python -->
     <style>
@@ -31,21 +32,22 @@
             background-color: #ffe066; /* Jaune plus clair */
             border-color: #ffe066; /* Jaune plus clair */
         }
+
     </style>
     
 </head>
 <body>
     <header>
         <!-- Barre de navigation personnalisée -->
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-            <a class="navbar-brand" href="#">Django Niger</a>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+            <a class="navbar-brand" href="{% url 'home:landing_page' %}">Django Niger</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Accueil</a>
+                        <a class="nav-link" href="{% url 'home:landing_page' %}">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">À Propos</a>
@@ -99,9 +101,9 @@
                         </li>
                     {% endif %}
                 </ul>
-                
             </div>
         </nav>
+
 
         <!-- Section d'accueil améliorée -->
         <section class="hero-section text-center py-5" style="background-color: #092E20; color: #fff;">
