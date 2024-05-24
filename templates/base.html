@@ -106,44 +106,44 @@
 
 
         <!-- Section d'accueil améliorée -->
-<section class="hero-section text-center py-5" style="background-color: #092E20; color: #fff;">
-    <div class="container">
-        <h1 class="display-3">Bienvenue sur Django Niger</h1>
-        <p class="lead">Votre communauté pour tout savoir sur Django</p>
-        <img src="{% static 'images/django.jpeg' %}" alt="Logo Django" class="img-fluid my-3" style="max-height: 100px;">
-        <div class="mt-4">
-            <h2>Chiffres de la Communauté</h2>
-            <p class="lead">Nous sommes une communauté grandissante avec :</p>
-            <div class="row justify-content-center">
-                <div class="col-md-4">
-                    <div class="card bg-dark text-white mb-3">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ visitor_count }}</h3>
-                            <p class="card-text">Visiteurs</p>
+        <section class="hero-section text-center py-5" style="background-color: #092E20; color: #fff;">
+            <div class="container">
+                <h1 class="display-3">Bienvenue sur Django Niger</h1>
+                <p class="lead">Votre communauté pour tout savoir sur Django</p>
+                <img src="{% static 'images/django.jpeg' %}" alt="Logo Django" class="img-fluid my-3" style="max-height: 100px;">
+                <div class="mt-4">
+                    <h2>Chiffres de la Communauté</h2>
+                    <p class="lead">Nous sommes une communauté grandissante avec :</p>
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="card bg-dark text-white mb-3">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{ visitor_count }}</h3>
+                                    <p class="card-text">Visiteurs</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-dark text-white mb-3">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{ subscriber_count }}</h3>
+                                    <p class="card-text">Abonnés</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-dark text-white mb-3">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{ user_count }}</h3>
+                                    <p class="card-text">Utilisateurs Inscrits</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card bg-dark text-white mb-3">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ subscriber_count }}</h3>
-                            <p class="card-text">Abonnés</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card bg-dark text-white mb-3">
-                        <div class="card-body">
-                            <h3 class="card-title">{{ user_count }}</h3>
-                            <p class="card-text">Utilisateurs Inscrits</p>
-                        </div>
-                    </div>
-                </div>
+                <a href="#about" class="btn btn-success btn-lg mt-3">En savoir plus</a>
             </div>
-        </div>
-        <a href="#about" class="btn btn-success btn-lg mt-3">En savoir plus</a>
-    </div>
-</section>
+        </section>
 
 
 
@@ -167,18 +167,35 @@
     </main>
 
     <!-- Formulaire d'abonnement -->
-    <section class="subscription-section text-center py-5">
-        <div class="container">
-            <h2 class="mb-4">Abonnez-vous à notre newsletter</h2>
-            <form method="post" action="{% url 'home:subscribe' %}">
-                {% csrf_token %}
-                <div class="form-group">
-                    <input type="email" name="email" class="form-control" placeholder="Votre adresse email" required>
-                </div>
-                <button type="submit" class="btn btn-primary">S'abonner</button>
-            </form>
-        </div>
-    </section>
+<section class="subscription-section text-center py-5 bg-light">
+    <div class="container mt-5">
+        <h2 class="mb-4">Abonnez-vous à notre newsletter</h2>
+        <form method="post" action="{% url 'home:subscribe' %}" class="mx-auto" style="max-width: 600px; background-color: #f8f9fa; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_email" class="font-weight-bold">Email :</label>
+                {{ form_subscribe.email }}
+                {% if form_subscribe.email.errors %}
+                    <div class="text-danger">
+                        {{ form_subscribe.email.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="id_name" class="font-weight-bold">Nom :</label>
+                {{ form_subscribe.name }}
+                {% if form_subscribe.name.errors %}
+                    <div class="text-danger">
+                        {{ form_subscribe.name.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary mt-3" style="background-color: #092E20; border-color: #092E20;">S'abonner</button>
+        </form>
+    </div>
+</section>
+
+
 
     <footer class="footer mt-auto py-3 footer-custom">
         <div class="container text-center">

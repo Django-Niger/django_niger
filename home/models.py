@@ -13,7 +13,17 @@ class Visitor(models.Model):
 
 class Subscriber(models.Model):
     email = models.EmailField(unique=True)
+    name = models.CharField(max_length=100, blank=True)
     subscription_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.email
+
+
+class EmailCampaign(models.Model):
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.subject

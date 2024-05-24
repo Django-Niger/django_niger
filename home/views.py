@@ -5,6 +5,7 @@ from datetime import datetime
 from event.models import Event
 from .forms import SubscriberForm
 from user.models import User
+from django.contrib import messages
 
 
 # Create your views here.
@@ -20,15 +21,25 @@ def landing_page(request):
         "upcoming_events": upcoming_events,
         "visitor_count": visitor_count,
         "subscriber_count": subscriber_count,
-        "user_count": user_count,  # Ajout du nombre d'utilisateurs inscrits au contexte
+        "user_count": user_count,
+        "form_subscribe": SubscriberForm(),
     }
     return render(request, "home/landing_page.html", context)
 
 
 def subscribe(request):
     if request.method == "POST":
-        form = SubscriberForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("home:landing_page")
+        email = request.POST.get("email")
+        if Subscriber.objects.filter(email=email).exists():
+            messages.error(request, "Vous êtes déjà abonné avec cet email.")
+        else:
+            form = SubscriberForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request, "Vous vous êtes abonné avec succès!")
+            else:
+                messages.error(
+                    request,
+                    "L'inscription a échoué. Veuillez vérifier les informations fournies.",
+                )
     return redirect("home:landing_page")
