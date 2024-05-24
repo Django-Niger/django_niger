@@ -1,6 +1,3 @@
-Voici la mise à jour du fichier `README.md` incluant les sections supplémentaires pour la configuration de l'email et la création de la base de données PostgreSQL :
-
-```markdown
 # Django Niger
 
 Bienvenue sur le projet Django Niger ! Ce projet vise à créer une communauté dynamique et passionnée autour du framework Django au Niger. Notre objectif est de connecter les développeurs, novices et experts, pour partager des connaissances, collaborer sur des projets, et promouvoir le développement web avec Django et Python.
@@ -137,4 +134,4 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de 
 ---
 
 Pour plus d'informations, visitez notre : [site web](https://django.pythonniger.org/) .
-```
+
