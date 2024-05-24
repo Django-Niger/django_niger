@@ -60,6 +60,11 @@ Bienvenue sur le projet Django Niger ! Ce projet vise à créer une communauté 
     EMAIL_HOST_USER=your-email@example.com
     EMAIL_HOST_PASSWORD=your-email-password
     DEFAULT_FROM_EMAIL=your-email@example.com
+    
+    ALLOWED_HOSTS=''
+    CSRF_TRUSTED_ORIGINS='http://localhost'
+
+    ACCOUNT_EMAIL_VERIFICATION=optional
     ```
 
 5. Appliquez les migrations de la base de données :
@@ -79,6 +84,9 @@ Bienvenue sur le projet Django Niger ! Ce projet vise à créer une communauté 
 Assurez-vous de configurer les variables d'environnement pour l'email dans votre fichier `.env` comme mentionné ci-dessus. Voici un rappel des paramètres :
 
 ```python
+ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
+CSRF_TRUSTED_ORIGINS = config("CSRF_TRUSTED_ORIGINS", cast=Csv())
+
 EMAIL_BACKEND = config("EMAIL_BACKEND")
 EMAIL_HOST = config("EMAIL_HOST")
 EMAIL_PORT = config("EMAIL_PORT", cast=int)
@@ -87,6 +95,8 @@ EMAIL_USE_SSL = config("EMAIL_USE_SSL", cast=bool)
 EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
+
+ACCOUNT_EMAIL_VERIFICATION = config("ACCOUNT_EMAIL_VERIFICATION")
 ```
 
 ### Création de la Base de Données PostgreSQL
