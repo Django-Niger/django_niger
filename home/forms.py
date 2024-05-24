@@ -2,7 +2,8 @@
 
 from django import forms
 from .models import Subscriber, EmailCampaign
-from ckeditor.widgets import CKEditorWidget
+
+# from ckeditor.widgets import CKEditorWidget
 
 
 class SubscriberForm(forms.ModelForm):
@@ -12,7 +13,8 @@ class SubscriberForm(forms.ModelForm):
 
 
 class EmailCampaignForm(forms.ModelForm):
-    message = forms.CharField(widget=CKEditorWidget())
+    # message = forms.CharField(widget=CKEditorWidget())
+    message = forms.Textarea()
 
     class Meta:
         model = EmailCampaign
