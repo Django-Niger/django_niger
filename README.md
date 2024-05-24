@@ -136,5 +136,5 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de 
 
 ---
 
-Pour plus d'informations, visitez notre : [site web](http://www.djangoniger.org) .
+Pour plus d'informations, visitez notre : [site web](https://django.pythonniger.org/) .
 ```
