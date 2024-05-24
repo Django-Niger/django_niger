@@ -1,6 +1,7 @@
 # home/models.py
 
 from django.db import models
+from ckeditor.fields import RichTextField
 
 
 class Visitor(models.Model):
@@ -22,7 +23,7 @@ class Subscriber(models.Model):
 
 class EmailCampaign(models.Model):
     subject = models.CharField(max_length=255)
-    message = models.TextField()
+    message = RichTextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

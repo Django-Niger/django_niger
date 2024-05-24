@@ -1,13 +1,13 @@
-# home/admin.py
-
 from django.contrib import admin
 from .models import EmailCampaign, Subscriber
+from .forms import EmailCampaignForm
 from utils import send_mass_email
 
 
 class EmailCampaignAdmin(admin.ModelAdmin):
     list_display = ("subject", "created_at")
     actions = ["send_campaign_email"]
+    form = EmailCampaignForm
 
     def send_campaign_email(self, request, queryset):
         for campaign in queryset:
