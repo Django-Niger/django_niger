@@ -167,33 +167,34 @@
     </main>
 
     <!-- Formulaire d'abonnement -->
-<section class="subscription-section text-center py-5 bg-light">
-    <div class="container mt-5">
-        <h2 class="mb-4">Abonnez-vous à notre newsletter</h2>
-        <form method="post" action="{% url 'home:subscribe' %}" class="mx-auto" style="max-width: 600px; background-color: #f8f9fa; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="id_email" class="font-weight-bold">Email :</label>
-                {{ form_subscribe.email }}
-                {% if form_subscribe.email.errors %}
-                    <div class="text-danger">
-                        {{ form_subscribe.email.errors }}
-                    </div>
-                {% endif %}
-            </div>
-            <div class="form-group">
-                <label for="id_name" class="font-weight-bold">Nom :</label>
-                {{ form_subscribe.name }}
-                {% if form_subscribe.name.errors %}
-                    <div class="text-danger">
-                        {{ form_subscribe.name.errors }}
-                    </div>
-                {% endif %}
-            </div>
-            <button type="submit" class="btn btn-primary mt-3" style="background-color: #092E20; border-color: #092E20;">S'abonner</button>
-        </form>
-    </div>
-</section>
+    <section class="subscription-section text-center py-5 bg-light">
+        <div class="container mt-5">
+            <h2 class="mb-4">Abonnez-vous à notre newsletter</h2>
+            <form method="post" action="{% url 'home:subscribe' %}" class="mx-auto" style="max-width: 600px; background-color: #f8f9fa; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_email" class="font-weight-bold">Email :</label>
+                    {{ form_subscribe.email }}
+                    {% if form_subscribe.email.errors %}
+                        <div class="text-danger">
+                            {{ form_subscribe.email.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="id_name" class="font-weight-bold">Nom :</label>
+                    {{ form_subscribe.name }}
+                    {% if form_subscribe.name.errors %}
+                        <div class="text-danger">
+                            {{ form_subscribe.name.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                <button type="submit" class="btn btn-primary mt-3" style="background-color: #306998; border-color: #306998;">S'abonner</button>
+            </form>
+        </div>
+    </section>
+    
 
 
 
