@@ -111,9 +111,24 @@
                 <h1 class="display-3">Bienvenue sur Django Niger</h1>
                 <p class="lead">Votre communauté pour tout savoir sur Django</p>
                 <img src="{% static 'images/django.jpeg' %}" alt="Logo Django" class="img-fluid my-3" style="max-height: 100px;">
-                <a href="#about" class="btn btn-success btn-lg">En savoir plus</a>
+                <div class="mt-4">
+                    <h2>Chiffres de la Communauté</h2>
+                    <p class="lead">Nous sommes une communauté grandissante avec :</p>
+                    <div class="d-flex justify-content-center">
+                        <div class="mx-3">
+                            <h3>{{ visitor_count }}</h3>
+                            <p>Visiteurs</p>
+                        </div>
+                        <div class="mx-3">
+                            <h3>{{ subscriber_count }}</h3>
+                            <p>Abonnés</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#about" class="btn btn-success btn-lg mt-3">En savoir plus</a>
             </div>
         </section>
+
 
         <!-- Affichage des messages -->
         {% if messages %}
@@ -134,6 +149,20 @@
         {% endblock content %}
     </main>
 
+    <!-- Formulaire d'abonnement -->
+    <section class="subscription-section text-center py-5">
+        <div class="container">
+            <h2 class="mb-4">Abonnez-vous à notre newsletter</h2>
+            <form method="post" action="{% url 'home:subscribe' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" placeholder="Votre adresse email" required>
+                </div>
+                <button type="submit" class="btn btn-primary">S'abonner</button>
+            </form>
+        </div>
+    </section>
+    
     <footer class="footer mt-auto py-3 footer-custom">
         <div class="container text-center">
             <p>&copy; 2024 Django Niger - Communauté Open Source.</p>
