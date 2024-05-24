@@ -4,6 +4,7 @@ from datetime import datetime
 from datetime import datetime
 from event.models import Event
 from .forms import SubscriberForm
+from user.models import User
 
 
 # Create your views here.
@@ -13,11 +14,13 @@ def landing_page(request):
     )
     visitor_count = Visitor.objects.count()
     subscriber_count = Subscriber.objects.count()
+    user_count = User.objects.count()  # Ajout du comptage des utilisateurs inscrits
 
     context = {
         "upcoming_events": upcoming_events,
         "visitor_count": visitor_count,
         "subscriber_count": subscriber_count,
+        "user_count": user_count,  # Ajout du nombre d'utilisateurs inscrits au contexte
     }
     return render(request, "home/landing_page.html", context)
 

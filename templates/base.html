@@ -106,28 +106,45 @@
 
 
         <!-- Section d'accueil améliorée -->
-        <section class="hero-section text-center py-5" style="background-color: #092E20; color: #fff;">
-            <div class="container">
-                <h1 class="display-3">Bienvenue sur Django Niger</h1>
-                <p class="lead">Votre communauté pour tout savoir sur Django</p>
-                <img src="{% static 'images/django.jpeg' %}" alt="Logo Django" class="img-fluid my-3" style="max-height: 100px;">
-                <div class="mt-4">
-                    <h2>Chiffres de la Communauté</h2>
-                    <p class="lead">Nous sommes une communauté grandissante avec :</p>
-                    <div class="d-flex justify-content-center">
-                        <div class="mx-3">
-                            <h3>{{ visitor_count }}</h3>
-                            <p>Visiteurs</p>
-                        </div>
-                        <div class="mx-3">
-                            <h3>{{ subscriber_count }}</h3>
-                            <p>Abonnés</p>
+<section class="hero-section text-center py-5" style="background-color: #092E20; color: #fff;">
+    <div class="container">
+        <h1 class="display-3">Bienvenue sur Django Niger</h1>
+        <p class="lead">Votre communauté pour tout savoir sur Django</p>
+        <img src="{% static 'images/django.jpeg' %}" alt="Logo Django" class="img-fluid my-3" style="max-height: 100px;">
+        <div class="mt-4">
+            <h2>Chiffres de la Communauté</h2>
+            <p class="lead">Nous sommes une communauté grandissante avec :</p>
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="card bg-dark text-white mb-3">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ visitor_count }}</h3>
+                            <p class="card-text">Visiteurs</p>
                         </div>
                     </div>
                 </div>
-                <a href="#about" class="btn btn-success btn-lg mt-3">En savoir plus</a>
+                <div class="col-md-4">
+                    <div class="card bg-dark text-white mb-3">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ subscriber_count }}</h3>
+                            <p class="card-text">Abonnés</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-dark text-white mb-3">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ user_count }}</h3>
+                            <p class="card-text">Utilisateurs Inscrits</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
+        <a href="#about" class="btn btn-success btn-lg mt-3">En savoir plus</a>
+    </div>
+</section>
+
 
 
         <!-- Affichage des messages -->
@@ -162,7 +179,7 @@
             </form>
         </div>
     </section>
-    
+
     <footer class="footer mt-auto py-3 footer-custom">
         <div class="container text-center">
             <p>&copy; 2024 Django Niger - Communauté Open Source.</p>
