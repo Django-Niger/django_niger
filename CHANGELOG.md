@@ -4,6 +4,19 @@ Tous les changements notables apportés à ce projet seront documentés dans ce 
 
 ## [Unreleased]
 
+## [1.2.0] - 2024-05-25
+
+### Ajouté
+- Implémentation de la fonctionnalité d'abonnement par email, y compris le formulaire, la vue et le modèle.
+- Ajout du modèle de suivi des visiteurs et affichage du nombre de visiteurs sur la page d'accueil.
+- Affichage du nombre d'utilisateurs inscrits sur la page d'accueil.
+- Création d'une fonction utilitaire pour l'envoi d'emails en masse.
+- Intégration de la gestion des campagnes d'emailing dans l'interface d'administration.
+
+### Modifié
+- Amélioration de la section d'abonnement avec un style et des couleurs améliorés.
+- Ajout de la validation du formulaire pour vérifier les abonnés existants avant d'ajouter un nouvel abonné.
+
 ## [1.1.1] - 2024-05-24
 
 ### Corrigé
