@@ -4,6 +4,13 @@ Tous les changements notables apportés à ce projet seront documentés dans ce 
 
 ## [Unreleased]
 
+## [1.1.1] - 2024-05-24
+
+### Corrigé
+- Correction de l'envoi des emails de confirmation pour inclure le domaine correct et le protocole HTTPS.
+- Ajustement de la configuration de `ACCOUNT_EMAIL_VERIFICATION` à "mandatory" pour obliger la vérification de l'email des utilisateurs.
+
+
 ## [1.1.0] - 2024-05-23
 
 ### Ajouté
