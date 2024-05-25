@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "ckeditor",
+    "ckeditor_uploader",
     "user",
     "home",
     "event",
@@ -61,6 +63,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
+    "home.middleware.VisitorMiddleware",
 ]
 
 
@@ -178,8 +181,7 @@ LOGOUT_REDIRECT_URL = "/"
 # Configuration de Django Allauth
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_EMAIL_VERIFICATION = "optional"
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_VERIFICATION = config("ACCOUNT_EMAIL_VERIFICATION")
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_LOGOUT_ON_GET = True
@@ -200,3 +202,13 @@ EMAIL_USE_SSL = config("EMAIL_USE_SSL", cast=bool)
 EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
+
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    "default": {
+        "toolbar": "full",
+        "height": 300,
+        "width": "100%",
+    },
+}

@@ -1,9 +1,6 @@
-Voici la mise à jour du fichier `README.md` incluant les sections supplémentaires pour la configuration de l'email et la création de la base de données PostgreSQL :
-
-```markdown
 # Django Niger
 
-Bienvenue sur le projet Django Niger ! Ce projet vise à créer une communauté dynamique et passionnée autour du framework Django au Niger. Notre objectif est de connecter les développeurs, novices et experts, pour partager des connaissances, collaborer sur des projets, et promouvoir le développement web avec Django.
+Bienvenue sur le projet Django Niger ! Ce projet vise à créer une communauté dynamique et passionnée autour du framework Django au Niger. Notre objectif est de connecter les développeurs, novices et experts, pour partager des connaissances, collaborer sur des projets, et promouvoir le développement web avec Django et Python.
 
 ## Fonctionnalités
 
@@ -63,6 +60,11 @@ Bienvenue sur le projet Django Niger ! Ce projet vise à créer une communauté 
     EMAIL_HOST_USER=your-email@example.com
     EMAIL_HOST_PASSWORD=your-email-password
     DEFAULT_FROM_EMAIL=your-email@example.com
+    
+    ALLOWED_HOSTS=''
+    CSRF_TRUSTED_ORIGINS='http://localhost'
+
+    ACCOUNT_EMAIL_VERIFICATION=optional
     ```
 
 5. Appliquez les migrations de la base de données :
@@ -82,6 +84,9 @@ Bienvenue sur le projet Django Niger ! Ce projet vise à créer une communauté 
 Assurez-vous de configurer les variables d'environnement pour l'email dans votre fichier `.env` comme mentionné ci-dessus. Voici un rappel des paramètres :
 
 ```python
+ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
+CSRF_TRUSTED_ORIGINS = config("CSRF_TRUSTED_ORIGINS", cast=Csv())
+
 EMAIL_BACKEND = config("EMAIL_BACKEND")
 EMAIL_HOST = config("EMAIL_HOST")
 EMAIL_PORT = config("EMAIL_PORT", cast=int)
@@ -90,6 +95,8 @@ EMAIL_USE_SSL = config("EMAIL_USE_SSL", cast=bool)
 EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
+
+ACCOUNT_EMAIL_VERIFICATION = config("ACCOUNT_EMAIL_VERIFICATION")
 ```
 
 ### Création de la Base de Données PostgreSQL
@@ -136,5 +143,5 @@ Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de 
 
 ---
 
-Pour plus d'informations, visitez notre [site web](http://www.djangoniger.org).
-```
+Pour plus d'informations, visitez notre : [site web](https://django.pythonniger.org/) .
+
