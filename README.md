@@ -110,7 +110,7 @@ ACCOUNT_EMAIL_VERIFICATION = config("ACCOUNT_EMAIL_VERIFICATION")
 2. Créez la base de données et l'utilisateur :
 
     ```sql
-    CREATE DATABASE nom_de_la_base_de_données;
+    CREATE DATABASE nom_de_la_base_de_donnees;
     CREATE USER nom_utilisateur WITH PASSWORD 'mot_de_passe';
     ```
 
@@ -123,7 +123,7 @@ ACCOUNT_EMAIL_VERIFICATION = config("ACCOUNT_EMAIL_VERIFICATION")
 4. Accordez les privilèges nécessaires sur le schéma `public` :
 
     ```sql
-    \c nom_de_la_base_de_données
+    \c nom_de_la_base_de_donnees
     GRANT USAGE ON SCHEMA public TO nom_utilisateur;
     GRANT CREATE ON SCHEMA public TO nom_utilisateur;
     GRANT ALL PRIVILEGES ON SCHEMA public TO nom_utilisateur;
