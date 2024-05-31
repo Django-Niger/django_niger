@@ -23,6 +23,7 @@ def landing_page(request):
         "subscriber_count": subscriber_count,
         "user_count": user_count,
         "form_subscribe": SubscriberForm(),
+       "show_footer": True,
     }
     return render(request, "home/landing_page.html", context)
 

@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Django Niger</title>
+    <!-- Police d'ecriture    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +40,8 @@
     </style>
     
 </head>
-<body>
+<body style="font-family:Roboto">
+
     <header>
         <!-- Barre de navigation personnalisée -->
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
@@ -104,61 +109,8 @@
             </div>
         </nav>
 
-
-        <!-- Section d'accueil améliorée -->
-        <section class="hero-section text-center py-5" style="background-color: #092E20; color: #fff;">
-            <div class="container">
-                <h1 class="display-3">Bienvenue sur Django Niger</h1>
-                <p class="lead">Votre communauté pour tout savoir sur Django</p>
-                <img src="{% static 'images/django.jpeg' %}" alt="Logo Django" class="img-fluid my-3" style="max-height: 100px;">
-                <div class="mt-4">
-                    <h2>Chiffres de la Communauté</h2>
-                    <p class="lead">Nous sommes une communauté grandissante avec :</p>
-                    <div class="row justify-content-center">
-                        <div class="col-md-4">
-                            <div class="card bg-dark text-white mb-3">
-                                <div class="card-body">
-                                    <h3 class="card-title">{{ visitor_count }}</h3>
-                                    <p class="card-text">Visiteurs</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card bg-dark text-white mb-3">
-                                <div class="card-body">
-                                    <h3 class="card-title">{{ subscriber_count }}</h3>
-                                    <p class="card-text">Abonnés</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card bg-dark text-white mb-3">
-                                <div class="card-body">
-                                    <h3 class="card-title">{{ user_count }}</h3>
-                                    <p class="card-text">Utilisateurs Inscrits</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#about" class="btn btn-success btn-lg mt-3">En savoir plus</a>
-            </div>
-        </section>
-
-
-
-        <!-- Affichage des messages -->
-        {% if messages %}
-            <div class="container mt-3">
-                {% for message in messages %}
-                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}" role="alert">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
-
     </header>
+
 
     <main role="main" class="container mt-4">
         {% block content %}
@@ -166,45 +118,18 @@
         {% endblock content %}
     </main>
 
-    <!-- Formulaire d'abonnement -->
-    <section class="subscription-section text-center py-5 bg-light">
-        <div class="container mt-5">
-            <h2 class="mb-4">Abonnez-vous à notre newsletter</h2>
-            <form method="post" action="{% url 'home:subscribe' %}" class="mx-auto" style="max-width: 600px; background-color: #f8f9fa; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="id_email" class="font-weight-bold">Email :</label>
-                    {{ form_subscribe.email }}
-                    {% if form_subscribe.email.errors %}
-                        <div class="text-danger">
-                            {{ form_subscribe.email.errors }}
-                        </div>
-                    {% endif %}
-                </div>
-                <div class="form-group">
-                    <label for="id_name" class="font-weight-bold">Nom :</label>
-                    {{ form_subscribe.name }}
-                    {% if form_subscribe.name.errors %}
-                        <div class="text-danger">
-                            {{ form_subscribe.name.errors }}
-                        </div>
-                    {% endif %}
-                </div>
-                <button type="submit" class="btn btn-primary mt-3" style="background-color: #306998; border-color: #306998;">S'abonner</button>
-            </form>
-        </div>
-    </section>
-    
 
+<!-- Ici, j'ai mis le footer dans une condition parce qu'on ne l'affichera pas sur toutes les pages du site.
+Donc, si le besoin se fait sentir d'afficher le footer, il faut juste passer ce contexte {"show_footer": True} à la vue de la page concernée. -->
 
-
-    <footer class="footer mt-auto py-3 footer-custom">
-        <div class="container text-center">
-            <p>&copy; 2024 Django Niger - Communauté Open Source.</p>
-            <p>Pour plus d'informations, contributions ou pour rejoindre le projet, visitez notre <a href="https://github.com/Django-Niger" target="_blank">page GitHub</a>.</p>
-        </div>
-    </footer>
-    
+    {% if  show_footer %}
+        <footer class="footer mt-auto py-3 footer-custom">
+            <div class="container text-center">
+                <p>&copy; 2024 Django Niger - Communauté Open Source.</p>
+                <p>Pour plus d'informations, contributions ou pour rejoindre le projet, visitez notre <a href="https://github.com/Django-Niger" target="_blank">page GitHub</a>.</p>
+            </div>
+        </footer>
+    {% endif  %}
 
     <!-- jQuery et Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
