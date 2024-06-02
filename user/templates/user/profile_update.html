@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="flex mx-auto my-5 md:my-12 px-3 row  justify-content-center">
+      <div class="flex  align-items-center rounded-lg card col-md-8 shadow-lg mt-3 mb-5 py-4 px-4 ">
+          <h1 class="mb-2">Edit Profile</h1>
+          <img  width="150"  height="150" style="border-radius: 50%; background-size: cover;" src="{{ request.user.profile.avatar }}" />
+          <div class="text-center ">
+                    <h1 class="display-5 fw-bold text-body-emphasis">{{ user.username }}</h1>
+                    <div class="text-gray-400 mb-2 -mt-3">{{ request.user.email }}</div>
+          </div>
+
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button  type="submit"  class="align-items-center btn btn-primary btn-lg px-4 rounded-pill">{% trans "Enregistrer" %}</button>
+                <button  class="align-items-center btn btn-primary btn-lg px-4 rounded-pill">{% trans "Annuler" %}</button>
+            </form>
+
+      </div>
+
+</div>
+{% endblock %}
