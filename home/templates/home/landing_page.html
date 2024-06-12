@@ -8,7 +8,59 @@
 </style>
 
 {% block content %}
-    
+
+    <!-- Section d'accueil améliorée -->
+    <section class="hero-section text-center py-5" style="background-color: #092E20; color: #fff;">
+        <div class="container">
+            <h1 class="display-3">Bienvenue sur Django Niger</h1>
+            <p class="lead">Votre communauté pour tout savoir sur Django</p>
+            <img src="{% static 'images/django.jpeg' %}" alt="Logo Django" class="img-fluid my-3" style="max-height: 100px;">
+            <div class="mt-4">
+                <h2>Chiffres de la Communauté</h2>
+                <p class="lead">Nous sommes une communauté grandissante avec :</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white mb-3">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ visitor_count }}</h3>
+                                <p class="card-text">Visiteurs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white mb-3">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ subscriber_count }}</h3>
+                                <p class="card-text">Abonnés</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-dark text-white mb-3">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ user_count }}</h3>
+                                <p class="card-text">Utilisateurs Inscrits</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#about" class="btn btn-success btn-lg mt-3">En savoir plus</a>
+        </div>
+    </section>
+
+
+
+    <!-- Affichage des messages -->
+    {% if messages %}
+        <div class="container mt-3">
+            {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 
     <!-- Section À Propos avec vidéo -->
     <section id="about" class="py-5">
@@ -30,7 +82,7 @@
                     </p>
                     <p class="text-justify">
                         Django Niger est plus qu'une communauté ; c'est une famille en pleine expansion où chaque membre apporte sa touche unique.
-                    </p>        
+                    </p>
                 </div>
             </div>
         </div>
@@ -133,4 +185,11 @@
             </div>
         </div>
     </section>
+
+    <!--    formulaire d'abonnement-->
+     {% include 'includes/registerform.html' %}
+
+    <!--    Ajout du footer-->
+    {% include 'includes/footer.html' %}
+
 {% endblock content %}
